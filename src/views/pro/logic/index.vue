@@ -21,7 +21,17 @@ import ContainerNode from "./components/ContainerNode";
 import MaintainNode from "./components/MaintainNode";
 // @ts-ignore
 import addNode from "./components/add.vue";
-import { create } from "/@/api/proRoute";
+import { create, getInfo } from "/@/api/proRoute";
+import useCurrentInstance from "/@/utils/vueInstance";
+const { globalProperties } = useCurrentInstance();
+// 获取路由信息
+const query = globalProperties.$router.currentRoute.value.query;
+console.log(query);
+watchEffect(async () => {
+  console.log(query);
+  const info = await getInfo(query.id);
+  console.log(JSON.parse(info.routeData));
+});
 const store = commonStoreHook();
 const addRef = ref(null);
 let lf = ref(null);

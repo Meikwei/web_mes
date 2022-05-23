@@ -19,3 +19,7 @@ export const deleteBatch = (data): Promise<any> => {
 export const updateStatus = (id, data): Promise<any> => {
   return http.get("/route/updateStatus/" + id, { params: data });
 };
+// 修改工艺流程状态
+export const getInfo = (id): Promise<any> => {
+  return http.get("/route/info/" + id);
+};

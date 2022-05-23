@@ -146,7 +146,7 @@ const handleStatusChange = (index: number, row: unknown) => {};
         <el-table-column label="备注" align="center" prop="routeDescribe" />
         <el-table-column label="操作" width="180" align="center">
           <template #default="scope">
-            <Edit :rowInfo="scope.row" @changePage="getList" />
+            <Edit :id="scope.row.id" />
             <FromDel :id="scope.row.id" @changePage="getList" />
           </template>
         </el-table-column>
